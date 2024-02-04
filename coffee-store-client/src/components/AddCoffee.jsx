@@ -49,13 +49,13 @@ const AddCoffee = () => {
                             <div className="label">
                                 <span className="label-text font-semibold">Name</span>
                             </div>
-                            <input type="text" name="coffeeName" placeholder="Enter coffee name" className="input input-bordered w-full" />
+                            <input type="text" name="coffeeName" placeholder="Enter coffee name" className="input input-bordered w-full" required />
                         </label>
                         <label className="form-control w-full px-2">
                             <div className="label">
                                 <span className="label-text font-semibold">Chef</span>
                             </div>
-                            <input name="chef" type="text" placeholder="Enter coffee cheff" className="input input-bordered w-full" />
+                            <input name="chef" type="text" placeholder="Enter coffee cheff" className="input input-bordered w-full" required />
                         </label>
                     </div>
                     {/* supplier & taste row */}
@@ -64,13 +64,13 @@ const AddCoffee = () => {
                             <div className="label">
                                 <span className="label-text font-semibold">Supplier</span>
                             </div>
-                            <input type="text" name="supplier" placeholder="Enter coffee supplier" className="input input-bordered w-full" />
+                            <input type="text" name="supplier" placeholder="Enter coffee supplier" className="input input-bordered w-full" required />
                         </label>
                         <label className="form-control w-full px-2">
                             <div className="label">
                                 <span className="label-text font-semibold">Taste</span>
                             </div>
-                            <input type="text" name="taste" placeholder="Enter coffee taste" className="input input-bordered w-full" />
+                            <input type="text" name="taste" placeholder="Enter coffee taste" className="input input-bordered w-full" required />
                         </label>
                     </div>
                     {/* category & details row */}
@@ -79,13 +79,13 @@ const AddCoffee = () => {
                             <div className="label">
                                 <span className="label-text font-semibold">Category</span>
                             </div>
-                            <input type="text" name="category" placeholder="Enter coffee category" className="input input-bordered w-full" />
+                            <input type="text" name="category" placeholder="Enter coffee category" className="input input-bordered w-full" required />
                         </label>
                         <label className="form-control w-full px-2">
                             <div className="label">
                                 <span className="label-text font-semibold">Details</span>
                             </div>
-                            <input type="text" name="details" placeholder="Enter coffee details" className="input input-bordered w-full" />
+                            <input type="text" name="details" placeholder="Enter coffee details" className="input input-bordered w-full" required />
                         </label>
                     </div>
                     {/* photo url row */}
@@ -93,11 +93,11 @@ const AddCoffee = () => {
                         <div className="label">
                             <span className="label-text font-semibold">Photo</span>
                         </div>
-                        <input type="text" name="photoUrl" placeholder="Enter photo url" className="input input-bordered w-full" />
+                        <input type="text" name="photoUrl" placeholder="Enter photo url" className="input input-bordered w-full" required />
                     </label>
                     {/* coffee button */}
                     <div className="px-2 mt-4">
-                        <input className="btn w-full px-2 bg-[#D2B48C] hover:bg-[#ad9678]" type="submit" value="Add Coffee" />
+                        <input className="btn w-full px-2 bg-[#D2B48C] hover:bg-[#ad9678]" type="submit" value="Add Coffee" required />
                     </div>
                 </form>
             </div>

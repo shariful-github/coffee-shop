@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
  
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_pass}@cluster0.9jtha6u.mongodb.net/?retryWrites=true&w=majority`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -35,6 +35,13 @@ async function run() {
       res.send(result);
     })
 
+    app.get('/coffee/:id', async(req, res) => {
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)};
+      const coffee = await coffeeCollection.findOne(query);
+      res.send(coffee);
+    })
+
     app.post('/coffee', async(req, res)=>{
         const newCoffee = req.body;
         // console.log(newCoffee);
@@ -42,7 +49,32 @@ async function run() {
         res.send(result);
     })
 
+    app.delete('/coffee/:id', async(req, res) =>{
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)};
+      const result = await coffeeCollection.deleteOne(query);
+      res.send(result);
+    })
 
+    app.put('/coffee/:id', async(req, res) =>{
+      const id = req.params.id;
+      const updatedCoffee = req.body;
+      const filter = {_id: new ObjectId(id)};
+      const options = {upsert: true};
+      const coffee = {
+        $set:{
+          coffeeName: updatedCoffee.coffeeName,
+          chef: updatedCoffee.chef,
+          supplier: updatedCoffee.supplier,
+          taste: updatedCoffee.taste,
+          category: updatedCoffee.category,
+          details: updatedCoffee.details,
+          photoUrl: updatedCoffee.photoUrl
+        }
+      }
+      const result = await coffeeCollection.updateOne(filter, coffee, options);
+      res.send(result);
+    })
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });

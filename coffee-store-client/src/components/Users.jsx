@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Header from './Header';
 
 const Users = () => {
     const loadedUsers = useLoaderData();
@@ -22,6 +23,7 @@ const Users = () => {
 
     return (
         <div className="overflow-x-auto">
+            <Header></Header>
             <h1 className='text-center my-8 font-bold text-3xl'>Total User: {users.length}</h1>
             <table className="table w-1/2 mx-auto">
                 {/* head */}

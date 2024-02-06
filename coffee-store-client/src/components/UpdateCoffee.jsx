@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import Header from "./Header";
 
 const UpdateCoffee = () => {
     const loadedCoffee = useLoaderData();
@@ -42,6 +43,7 @@ const UpdateCoffee = () => {
 
     return (
         <div className="grid place-items-center h-screen">
+            <Header></Header>
             <div className="w-3/4 bg-[#F4F3F0] mx-auto rounded-md px-20 py-16">
                 <h3 className="text-center text-3xl font-bold text-stone-600">Update a Coffee</h3>
                 <p className="w-3/4 mx-auto text-center py-2">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout.</p>

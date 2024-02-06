@@ -28,7 +28,6 @@ const SignUp = () => {
                     .then(data => {
                         // console.log(data);
                         if (data.insertedId) {
-                            alert('inserted');
                             Swal.fire({
                                 title: "User Created!",
                                 text: "User created and inserted to MongoDB",

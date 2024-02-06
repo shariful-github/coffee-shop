@@ -28,6 +28,7 @@ async function run() {
 
     const database = client.db('coffeeDB');
     const coffeeCollection = database.collection('coffeeCollection');
+    const userCollection = database.collection('user');
 
     app.get('/coffee', async(req, res)=>{
       const cursor = coffeeCollection.find();
@@ -73,6 +74,13 @@ async function run() {
         }
       }
       const result = await coffeeCollection.updateOne(filter, coffee, options);
+      res.send(result);
+    })
+
+    // store user to database
+    app.post('/user', async(req, res) =>{
+      const user = req.body;
+      const result = await userCollection.insertOne(user);
       res.send(result);
     })
 
